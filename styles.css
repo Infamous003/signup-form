@@ -1,0 +1,306 @@
+@font-face {
+    font-family: "odin-font";
+    src: url("./fonts/Norse-Bold.otf");
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    background-color:whitesmoke;
+}
+
+.sidebar {
+    height:99.95vh;
+    min-width: 40%;
+    background: url(./img/leaves.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.sidebar p, .sidebar a{
+    color: white;
+}
+
+.sidebar p {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+/* Styling the logo which is on top of the sidebar */
+
+div.logo-div {
+    height: 8rem;
+    padding: 2rem;
+
+    color: white;
+    font-family: "odin-font";
+    font-size: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    position: relative;
+    top: 15rem;
+}
+
+.logo-div img {
+    width: 100px;
+    text-align: center;
+}
+
+.logo-div h1 {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Styling the section on the right, main section */
+
+.main-div {
+    flex: 1; /*Right section takes up all the remaining space after the side bar is rendered*/
+    padding: 2rem 0rem; /*Giving padding on left and right was causing the form's boundaries in the middle too*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro-div .heading,
+.intro-div .heading2 {
+    font-size: 1.5rem;
+    width: 75%;
+    font-weight: bold
+}
+
+.intro-div .heading,
+.intro-div .heading2,
+form,
+.button-div {
+    padding: 0 2.5rem; /* This fixes the padding problem. Now all the stuff is equally spaced from the side bar*/
+}
+
+
+form {
+    position: relative; /* This is necessary to position the legend */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    padding-top: 5rem;
+    padding-bottom: 1.5rem;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-wrap: wrap; /* Extra content is pushed to next line, this prevents horizontal scrollbar */
+    column-gap: 8rem;
+}
+
+form > .form-heading { 
+    position: absolute; /* To position it anywhere */
+    top: 0;
+    text-transform: none;
+    font-size: 1.7rem;
+    color: #333;
+}
+
+form label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Styling each widget/form control */
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.3rem;
+    margin-bottom: 2rem;
+    min-width: 30%;
+}
+
+form .form-field input {
+    padding: 5px;
+    font-size: inherit;
+}
+
+/* Styling the inputs and validation */
+
+input, input:valid {
+    background-color: #E5E7EB;
+    border: 1px solid #9e9e9e;
+    border-radius: 4px;
+}
+
+input:hover {
+    background-color: #E9E9EE;
+    border: 1px solid #7c7c7c;
+}
+
+input:invalid {
+    border: 1px solid rgb(200, 0, 0);
+}
+
+input:focus{
+    outline: 1px solid #1474af;
+    border: 1px solid #1474af;
+}
+
+input + span {
+    position: relative;
+}
+
+input + span::before {
+    position: absolute;
+    right: -30px;
+    top: -35px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+input[type="email"]:invalid + span::before,
+input[type="password"]:invalid + span::before {
+    content: "✖";
+    color: red;
+}
+
+input[type="email"]:valid + span::before,
+input[type="password"]:valid + span::before {
+    content: "✓";
+    color: green;
+}
+
+.form-field p {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    letter-spacing: 0;
+    color: rgb(200, 0, 0);
+    text-transform: none;
+}
+
+/* Styling the last section */
+
+.button-div > button {
+    width: 225px;
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.7rem;
+    color: #EEE;
+    background-color: #596D48;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
+
+div.button-div > button:hover {
+    opacity: 0.9;
+}
+
+.button-div a {
+    text-decoration: none;
+    color: #596D48;
+    font-weight: bold;
+}
+
+
+@media (max-width: 1080px) {
+    form {
+        column-gap: 5rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    form {
+        column-gap: 3rem;
+    }
+}
+
+@media (max-width: 945px) {
+    .form-field {
+        width: 70%;
+        margin-bottom: 1rem;
+        row-gap: 0.25rem;
+    }
+    .main-div {
+        padding: 0.8rem 0;
+    }
+    .intro-div .heading,
+    .intro-div .heading2,
+    form,
+    .button-div {
+        padding-left: 2rem;
+
+    }
+
+    form {
+        padding-top: 4rem;
+        padding-bottom: 1rem;
+    }
+
+    .button-div button {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 810px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        height: 100vh;
+        width: 100%;
+        padding: 6rem 0;
+        background-size: cover;
+    }
+
+    .sidebar p {
+        text-align: right;
+        padding-right: 0.5rem;
+    }
+
+    div.logo-div {
+        height: 4rem;
+        padding: 1rem;
+        font-size: 1.5rem;
+        top: 0rem;
+    }
+    .logo-div img {
+        width: 50px;
+    }
+
+    .intro-div .heading,
+    .intro-div .heading2 {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+
+    }
+
+    form {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem 0 2.5rem 0;
+    }
+
+    .button-div button {
+        margin-top: 2.5rem;
+    }
+
+}
+
